@@ -1,23 +1,31 @@
 {{> header}}
 
-<main>
-  <h2>Welcome, {{username}}</h2>
+<main class="container my-4">
+  <div class="d-flex justify-content-between align-items-center">
+    <h2>Welcome, {{username}}</h2>
+    <button id="new-post" class="btn btn-primary">New Post</button>
+  </div>
 
-  <button id="new-post">New Post</button>
-  
-  <!-- New Post Form -->
-  <form class="new-post-form" style="display:none;">
-    <input type="text" id="post-title" placeholder="Post Title" required />
-    <textarea id="post-content" placeholder="Post Content" required></textarea>
-    <button type="submit">Create Post</button>
+  <form class="new-post-form mt-4" style="display:none;">
+    <div class="form-group">
+      <input type="text" id="post-title" class="form-control" placeholder="Post Title" required />
+    </div>
+    <div class="form-group">
+      <textarea id="post-content" class="form-control" placeholder="Post Content" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-success">Create Post</button>
   </form>
 
   {{#each blogposts}}
-    <article>
-      <h3>{{title}}</h3>
-      <p>{{content}}</p>
-      <button class="edit-post" data-id="{{id}}">Edit</button>
-      <button class="delete-post" data-id="{{id}}">Delete</button>
+    <article class="card my-3">
+      <div class="card-body">
+        <h3 class="card-title">{{title}}</h3>
+        <p class="card-text">{{content}}</p>
+        <div class="d-flex justify-content-end">
+          <button class="btn btn-secondary edit-post" data-id="{{id}}">Edit</button>
+          <button class="btn btn-danger ml-2 delete-post" data-id="{{id}}">Delete</button>
+        </div>
+      </div>
     </article>
   {{/each}}
 </main>
@@ -26,3 +34,4 @@
 
 <script src="/js/dashboard.js"></script>
 <script src="/js/newPost.js"></script>
+<script src="/js/editDeletePost.js"></script>
