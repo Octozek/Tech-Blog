@@ -1,0 +1,28 @@
+{{> header}}
+
+<main>
+  <h2>Welcome, {{username}}</h2>
+
+  <button id="new-post">New Post</button>
+  
+  <!-- New Post Form -->
+  <form class="new-post-form" style="display:none;">
+    <input type="text" id="post-title" placeholder="Post Title" required />
+    <textarea id="post-content" placeholder="Post Content" required></textarea>
+    <button type="submit">Create Post</button>
+  </form>
+
+  {{#each blogposts}}
+    <article>
+      <h3>{{title}}</h3>
+      <p>{{content}}</p>
+      <button class="edit-post" data-id="{{id}}">Edit</button>
+      <button class="delete-post" data-id="{{id}}">Delete</button>
+    </article>
+  {{/each}}
+</main>
+
+{{> footer}}
+
+<script src="/js/dashboard.js"></script>
+<script src="/js/newPost.js"></script>

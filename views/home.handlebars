@@ -1,0 +1,13 @@
+{{> header}}
+
+<main>
+  {{#each blogs}}
+    <article>
+      <h2>{{title}}</h2>
+      <p>{{content}}</p>
+      <p>Posted by {{user.username}} on {{createdAt}}</p>
+    </article>
+  {{/each}}
+</main>
+
+{{> footer}}
